@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Micossevice.iml" filepath="$PROJECT_DIR$/.idea/Micossevice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/employee-application/employee-application.iml" filepath="$PROJECT_DIR$/employee-application/employee-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-service-application/eureka-service-application.iml" filepath="$PROJECT_DIR$/eureka-service-application/eureka-service-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manager-application/manager-application.iml" filepath="$PROJECT_DIR$/manager-application/manager-application.iml" />
+    </modules>
+  </component>
+</project>
