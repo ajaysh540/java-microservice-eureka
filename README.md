@@ -16,9 +16,12 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
 
 #Manager Service
     
-    Spring Security Enabled with In Memory Credentials for two Roles:
-    - User
-    - Manager
+  Spring Security Enabled with In Memory Credentials for two Roles:
+  Calls Will be made to Employee service with JWT token received from service by logging in from Manager Service.
+  **Internally logs into Employee service and uses JWT token to send requests.**
+    
+  - User
+  - Manager
     User: can access some pages.
     Manager: can access All pages.
     Credentials: 
@@ -49,6 +52,8 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
     
 #Employee Service
 
+Implemented JWT Authentication.
+
 Takes request from Manager Service, is not protected by any security.
 
 Uses MySql Db.
@@ -56,3 +61,12 @@ Db name is "employee"
 Assumed db is up and running on port:3306
 To configure check properties.
 
+Use post request to /authenticate with following object in body:
+ 
+        `{
+        "username":"employee",
+        "password":"employee"
+        }`
+
+Return object will be JWT token used in all subsequent requests as
+Authorization Header.

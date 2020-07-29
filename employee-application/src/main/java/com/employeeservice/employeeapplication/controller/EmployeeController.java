@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 @RefreshScope
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
-
 
     @GetMapping("/getemployees")
     public List<Employee> getAllEmployees(){

@@ -12,6 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Auth-Server" target="11" />
       <module name="employee-application" target="11" />
       <module name="eureka-service-application" target="11" />
       <module name="manager-application" target="11" />
@@ -19,6 +20,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Auth-Server" options="-parameters" />
       <module name="employee-application" options="-parameters" />
       <module name="eureka-service-application" options="-parameters" />
       <module name="manager-application" options="-parameters" />
