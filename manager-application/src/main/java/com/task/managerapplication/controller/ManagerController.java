@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @RefreshScope
 @RestController
@@ -22,12 +26,14 @@ public class ManagerController {
 
 
     @GetMapping("/employees")
-    public ResponseEntity<Object> getemployees(){
+    public Object getemployees(){
         try{
-            return new ResponseEntity<Object>(restTemplate.getForObject(getBaseUrl()+"/getemployees",Object.class), HttpStatus.OK);
+            Object result = restTemplate.exchange(getBaseUrl()+"/getemployees", HttpMethod.GET,null, new ParameterizedTypeReference<List<Object>>() {}).getBody();
+            System.out.print(result.toString());
+            return result;
         }
         catch (Exception e){
-            return new ResponseEntity<Object>("Error Occured",HttpStatus.INTERNAL_SERVER_ERROR);
+            return ("Error Occured "+ HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
