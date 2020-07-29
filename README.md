@@ -16,10 +16,10 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
 
 ##Manager Service
     
-  Spring Security Enabled with In Memory Credentials for two Roles:
+  
   Calls Will be made to Employee service with JWT token received from service by logging in from Manager Service.
   **Internally logs into Employee service and uses JWT token to send requests.**
-    
+  Service is using Spring Security with In Memory Credentials for two Roles:  
   - User
   - Manager
   
