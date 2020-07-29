@@ -2,8 +2,7 @@
 
 Eureka server and config server implemented in eureka service application and port number is 8090 for service
 
-Manager service consumes employee service through eureka client
-
+**Manager service consumes employee service through eureka client.** Here I used Employee service as a provider service to be consumed by manager Service.
 configurations are present at git repository- https://github.com/ajaysh540/java-task-config-server.git
 
 To start clone the repository into local and import as maven project into IDE.
