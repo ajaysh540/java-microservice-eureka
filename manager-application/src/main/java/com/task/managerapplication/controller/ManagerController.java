@@ -2,11 +2,9 @@ package com.task.managerapplication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +17,9 @@ public class ManagerController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-    @Value("${message}")
-    String message;
     private RestTemplate restTemplate =new RestTemplate();
 
-    @GetMapping("/testconfig")
-    public String testConfigServer(){
-        return message;
-    }
+
 
     @GetMapping("/employees")
     public ResponseEntity<Object> getemployees(){
@@ -38,7 +31,7 @@ public class ManagerController {
         }
     }
 
-    @PostMapping("/addEmployee")
+    @PostMapping("/addemployee")
     public ResponseEntity<Object> addEmployee(@RequestBody Object employee){
         System.out.println(employee.toString());
         try{
@@ -59,7 +52,7 @@ public class ManagerController {
         }
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping("/delete")
     public ResponseEntity<String> deleteEmployee(@RequestBody Object employee){
         try{
             return new ResponseEntity<String>(restTemplate.postForObject(getBaseUrl()+"/deleteEmployee",employee ,String.class), HttpStatus.OK);
