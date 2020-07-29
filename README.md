@@ -14,7 +14,7 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
 
 
 
-#Manager Service
+##Manager Service
     
   Spring Security Enabled with In Memory Credentials for two Roles:
   Calls Will be made to Employee service with JWT token received from service by logging in from Manager Service.
@@ -22,6 +22,7 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
     
   - User
   - Manager
+  
     User: can access some pages.
     Manager: can access All pages.
     Credentials: 
@@ -42,6 +43,7 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
         - /manager/update: Post Request to update an employee by passing Employee Id in Employee object
         
     Employee object to be passed contains following values: 
+        
         {
         "Id": null, //auto generated passed null while adding.
         "firstName": "" ,
@@ -50,7 +52,7 @@ Ports can be changed in bootstrap.properties file in resource folder of the appl
         "contactNumber": 898799,//any number
         }
     
-#Employee Service
+##Employee Service
 
 Implemented JWT Authentication.
 
@@ -63,10 +65,10 @@ To configure check properties.
 
 Use post request to /authenticate with following object in body:
  
-        `{
+        {
         "username":"employee",
         "password":"employee"
-        }`
+        }
 
 Return object will be JWT token used in all subsequent requests as
 Authorization Header.
